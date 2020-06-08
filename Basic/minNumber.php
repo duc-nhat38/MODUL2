@@ -1,10 +1,15 @@
+
+<?php
+// Start the session
+session_start();
+?>
 <?php
 function checkMin($arr)
 {
     if (count($arr) === 0) {
         return "Không có giá trị nhập vào";
     }
-    for ($i = 0; $i < count($arr); $i++) {
+    for ($i = 1; $i < count($arr); $i++) {
         $min = $arr[0];
         if ($min > $arr[$i]) {
             $min = $arr[$i];
@@ -14,19 +19,26 @@ function checkMin($arr)
 }
 
 if ($_SERVER['REQUEST_METHOD']==='POST') {
-    // $numbers = [];
-    $num;
-    if ($_POST['submit'] === "add") {
-        $num =  $_POST['number'];
-        // array_push($numbers, $num);
+
+    // $numbers = array();
+    $_SESSION['arr'] =[];
+    // $arr = [];
+    $num = (int)  $_POST['number'];
+    if ($_POST['submit'] === "add") {   
+        $_SESSION['arr'][0] =$num;
+        print_r($_SESSION);
+
     }
-    if ($_POST['submit'] === "out") {
-        // print_r($numbers);
+ 
+    
+    if ($_POST['submit'] === "out") {        
         // echo checkMin($numbers);
-        echo $num;
+        print_r($_SESSION['arr']);
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
