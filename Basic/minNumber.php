@@ -6,8 +6,9 @@ function checkMin($arr)
     if (count($arr) === 0) {
         return "Không có giá trị nhập vào";
     }
+    $min = $arr[0];
     for ($i = 1; $i < count($arr); $i++) {
-        $min = $arr[0];
+        
         if ($min > $arr[$i]) {
             $min = $arr[$i];
         }
@@ -22,7 +23,7 @@ if (isset($_SESSION['myArray'])) {
 
 if ($_SERVER['REQUEST_METHOD']==='POST') {
 
-    $num = (int)  $_POST['number'];
+    $num =   $_POST['number'];
     if ($_POST['submit'] === "add") {   
       array_push($numbers, $num);
       $_SESSION['myArray'] = $numbers;
