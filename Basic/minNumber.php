@@ -1,9 +1,6 @@
 
 <?php
-// Start the session
 session_start();
-?>
-<?php
 function checkMin($arr)
 {
     if (count($arr) === 0) {
@@ -17,23 +14,26 @@ function checkMin($arr)
     }
     return $min;
 }
+if (isset($_SESSION['myArray'])) {
+ $numbers = $_SESSION['myArray'];
+}else {
+    $numbers = [];
+}
 
 if ($_SERVER['REQUEST_METHOD']==='POST') {
 
-    // $numbers = array();
-    $_SESSION['arr'] =[];
-    // $arr = [];
     $num = (int)  $_POST['number'];
     if ($_POST['submit'] === "add") {   
-        $_SESSION['arr'][0] =$num;
-        print_r($_SESSION);
+      array_push($numbers, $num);
+      $_SESSION['myArray'] = $numbers;
 
     }
  
     
     if ($_POST['submit'] === "out") {        
-        // echo checkMin($numbers);
-        print_r($_SESSION['arr']);
+         echo "Số bé nhất là : ".checkMin($numbers);
+         unset($_SESSION['myArray']);
+        
     }
 }
 ?>
