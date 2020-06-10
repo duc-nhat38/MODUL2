@@ -30,24 +30,6 @@ class Triangle extends Shape
         $this->side2 = 1.0;
         $this->side3 = 1.0;
     }
-    // public function getSlide1(){
-    //     return $this->side1;
-    // }
-    // public function setSlide1(float $newSide){
-    //     $this->side1 = $newSide;
-    // }
-    // public function getSlide2(){
-    //     return $this->side2;
-    // }
-    // public function setSlide2(float $newSide){
-    //     $this->side2 = $newSide;
-    // }
-    // public function getSlide3(){
-    //     return $this->side3;
-    // }
-    // public function setSlide3(float $newSide){
-    //     $this->side3 = $newSide;
-    // }
     public function __get($name)
     {
         if (property_exists($this, $name)) {
