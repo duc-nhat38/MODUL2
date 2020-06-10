@@ -1,4 +1,7 @@
 <?php
+$jsonData = file_get_contents('users.json');
+$data = json_decode($jsonData, true);
+
  if (isset($_POST['submit'])) {
      $name = $_POST['name'];
      $email = $_POST['email'];

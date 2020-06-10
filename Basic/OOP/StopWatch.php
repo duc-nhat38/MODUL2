@@ -1,11 +1,8 @@
 <?php
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 class StopWatch{
     private $startTime;
     private $endTime;
-    public function __construct(){
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $this->startTime = date('H:i:s');
-    }
     public function start() {
         $this->startTime = date('H:i:s');
     }
@@ -19,7 +16,7 @@ class StopWatch{
         return $this->endTime;
     }
     public function getElapsedTime() {
-        return ($this->stop()-$this->start())*60;
+        return microtime(($this->stop()-$this->start()));
     } 
 }
 $stopWatch = new StopWatch();
