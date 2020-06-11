@@ -1,0 +1,40 @@
+* {
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    width: 100%;
+}
+.header {
+    width: 100%;
+}
+.phone-email{
+    display: flex;
+    padding: 1% 10%;
+    background-color: #1e4a1c;
+    color: aliceblue;
+}
+#phone {
+    display: flex;
+    width: 15%;
+}
+#phone p {
+    margin-left: 5%;
+}
+#email {
+    
+    display: flex;
+    margin-left: 3%;
+    text-align: left;
+}
+.logo-search {
+    display: flex;
+    padding-left: 10%
+}
+#logo {
+    flex: 2;
+}
+#logo img {
+    width: 70px;
+}
