@@ -15,14 +15,7 @@ class EmployeeManager
     }
     public function getEmployees()
     {
-        $index = 0;
-        $result = null;
-        foreach (self::$List as $value) {
-
-            $result .= $index.' '. $value->getSurName() .' '. $value->getName() .' '. $value->getBirthDay() .' '. $value->getAddress() .' '. $value->getJobPosition() . '<br>';
-            $index++;
-        }
-        return $result;
+        
     }
     public function getEmployee($Employee)
     {

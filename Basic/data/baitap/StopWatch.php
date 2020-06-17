@@ -19,12 +19,3 @@ class StopWatch{
         return microtime(($this->stop()-$this->start()));
     } 
 }
-// $stopWatch = new StopWatch();
-// $stopWatch->start();
-// echo $stopWatch->getStartTime();
-// echo "<br>";
-// $stopWatch->stop();
-// echo $stopWatch->getEndTime();
-// echo "<br>";
-// echo $stopWatch->getElapsedTime()
-// ?>

@@ -1,17 +1,18 @@
 <?php
-$arr = [1,2,3,4,5,6,7,8,9,0];
+$arr = [1,2,3,4,2,6,7,8,9,0];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $num = (int) $_POST['number'];
-}
-for ($i =0 ; $i < count($arr);$i++) {
-    if ($arr[$i] === $num) {
-        for ($i;$i < count($arr)-1; $i++){
-            $arr[$i] = $arr[$i+1];
+    for ($i =0 ; $i < count($arr);$i++) {
+        if ($arr[$i] === $num) {
+            for ($i;$i < count($arr)-1; $i++){
+                $arr[$i] = $arr[$i+1];
+            }
         }
     }
 }
 
+var_dump($arr);
 ?>
 
 

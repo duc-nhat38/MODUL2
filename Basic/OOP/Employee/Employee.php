@@ -14,39 +14,22 @@ class Employee{
         $this->address = $address;
         $this->jobPosition = $jobPosition;
     }
-    public function getSurName(){
-        return $this->surName;
-    }
-    public function setSurName($surName){
-         $this->surName = $surName;
-    }
-    public function getName(){
-        return $this->name;
-    }
-    public function setName($Name){
-        $this->name = $Name;
-    }
-    public function getBirthDay(){
-        return $this->birthDay;
-    }
-    public function setBirthDay($birthDay){
-        $this->birthDay = $birthDay;
-    }
-    public function getAddress(){
-        return $this->address;
-    }
-    public function setAddress($address){
-        $this->address = $address;
-    }
-    public function getJobPosition(){
-        return $this->jobPosition;
-    }
-    public function setJobPosition($jobPosition){
-        $this->jobPosition = $jobPosition;
-    }
-    function array(){
-        return [$this->surName, $this->name,$this->birthDay,$this->address, $this->jobPosition];
-    }
+     public function __get($name)
+     {
+         if (property_exists($this, $name)) {
+             return $this->$name;
+         }else {
+             return 'Không tồn tại thuộc tính';
+         }
+     }
+     public function __set($name, $value)
+     {
+         if (property_exists($this, $name)) {
+              $this->$name =$value;
+         }else {
+             return 'Không tồn tại thuộc tính';
+         }
+     }
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $string = (string) $_POST['string'];
-    $str = (string) $_POST['str'];
+    $string =  $_POST['string'];
+    $str =  $_POST['str'];
 }
 $count =0 ;
 if (strlen($string) === 0 || strlen($str) === 0) {
