@@ -1,23 +1,31 @@
 <?php
-function checkBracket($arr)
+function checkBracket($str)
 {
     $stack = new SplStack();
-    foreach($arr as $value){
-        if ($stack->isEmpty() && $value === ')') {
-            return 'Sai';
+    for($i = 0; $i < strlen($str);$i++){
+        if ($str[$i] === '('){
+            $stack->push($str[$i]);
         }
-        $stack->push($value);
+        if ($str[$i] === ')'){
+            if ($stack->isEmpty()){
+                return false;
+            }else{
+                $stack->pop();
+            }
+        }
     }
-    for ($i = 0; $i < count($arr)){
-        $stack->pop();
+    if ($stack->isEmpty()){
+        return true;
     }
+    return false;
 }
-if ($_SERVER['REQUEST_METHOD'] === ' POST') {
-    $input = explode('', $_POST['input']);
-    if(checkBracket($input)) {
-        echo 'đúng';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $input = $_POST['input'];
+    if(checkBracket($input)){
+        echo 'Đúng';
     }else{
-        echo 'ko';
+        echo 'Sai';
     }
     
 }
@@ -41,8 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === ' POST') {
     <form action="Bracket.php" method="post">
         <label for="input">Nhập : </label>
         <input type="text" id="input" name="input">
-        <input type="submit" value="submit">
+        <input type="submit">
     </form>
+    
 </body>
 
 </html>
