@@ -1,17 +1,20 @@
 <?php
-function insertion_Sort($my_array)
-{
-    for($i=0;$i<count($my_array);$i++){
-        $val = $my_array[$i];
-        $j = $i-1;
-        while($j>=0 && $my_array[$j] > $val){
-            $my_array[$j+1] = $my_array[$j];
-            $j--;
-        }
-        $my_array[$j+1] = $val;
-    }
-    return $my_array;
+$numbers = [];
+for ($i = 0; $i < 100; $i++) {
+    array_push($numbers, rand(0, 10));
 }
-$test_array = array(6, 0, 2, 5, -1, 4, 1);
-print_r(insertion_Sort($test_array));
-?>
+function countNum($arr, $num)
+{
+    $count = 0;
+    foreach ($arr as $value) {
+        if ($value === $num) {
+            $count++;
+        }
+    }
+    if ($count === 0 ) {
+        echo "ko tồn tại $num ";
+    } else {
+        echo "xuất hiện $count lần";
+    }
+}
+ countNum($numbers, 5);
